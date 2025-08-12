@@ -12,7 +12,7 @@ export default function FoundersPage() {
             Meet Our Founders
           </h1>
           <p className="text-xl text-muted-foreground mb-8">
-            The visionaries behind Abroad Handy, combining academic excellence
+            The visionaries behind "In Progress", combining academic excellence
             and technological innovation
           </p>
         </div>
