@@ -2,14 +2,6 @@
 
 ![Waitly](/src/app/opengraph-image.png)
 
-<p>
-  Quickly launch a sleek waitlist page for your next project! This template leverages the power of Next.js 15, uses Notion as a simple CMS, incorporates Upstash Redis for rate limiting, and sends emails via Resend with your custom domain.
-</p>
-
-<p>
-  <strong>Live Demo:</strong> <a href="https://waitly.idee8.agency" target="_blank" rel="noopener noreferrer">waitly.idee8.agency</a>
-</p>
-
 ## Deploy to Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FIdee8%2FWaitly&env=UPSTASH_REDIS_REST_URL,UPSTASH_REDIS_REST_TOKEN,NOTION_SECRET,NOTION_DB,RESEND_API_KEY,RESEND_FROM_EMAIL&envDescription=Environment%20variables%20needed%20for%20the%20Waitly%20template.&project-name=my-waitlist&repository-name=my-waitlist-app&template=Waitly)
@@ -125,15 +117,3 @@ To run this project on your local machine:
     pnpm email
     ```
     This typically starts a server on `http://localhost:3001` (or as configured in `package.json`).
-
-## License
-
-This template is open-source and available under the [MIT License](LICENSE.md). You are free to use, modify, and distribute it for personal or commercial projects.
-
-## Support & Contributions
-
-Encountered a bug, have a feature request, or need clarification? Please [open an issue](https://github.com/Idee8/Waitly/issues) on the original repository.
-
-For general questions or discussions, you can reach out to [Idee8 Agency on X (formerly Twitter)](https://x.com/Idee8Agency).
-
-Contributions are welcome! Please feel free to fork the repository, make your changes, and submit a pull request.
