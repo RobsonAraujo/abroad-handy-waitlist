@@ -2,12 +2,17 @@
 
 import { cn } from "~/lib/utils";
 import { useScroll } from "~/hooks/use-scroll";
-import { GithubLogo, NotionLogo } from "./svgs";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Header() {
   const scrolled = useScroll();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header
@@ -17,31 +22,103 @@ export default function Header() {
           "bg-background/50 md:bg-transparent md:backdrop-blur-none backdrop-blur-sm"
       )}
     >
-      {/* <Link
-				href="https://valiant-cobweb-66d.notion.site/1f6821a3f402802ca641e5e19d28a9b2?v=1f6821a3f402810d8a47000cad3beb2d&pvs=74"
-				target="_blank"
-				rel="noopener noreferrer"
-				className="cursor-pointer"
-			>
-				<Button variant="secondary">
-					<NotionLogo />
-					Notion DB Sample
-				</Button>
-			</Link>
+      {/* Logo */}
+      <Link href="/" className="flex items-center space-x-2">
+        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+          <span className="text-primary-foreground font-bold text-sm">A</span>
+        </div>
+        <span className="font-semibold text-lg">Abroad Handy</span>
+      </Link>
 
-			<div className="flex items-center gap-2">
-				<Link
-					href="https://github.com/new?template_name=Waitly&template_owner=Idee8"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="cursor-pointer"
-				>
-					<Button variant="secondary">
-						<GithubLogo />
-						Use this template
-					</Button>
-				</Link>
-			</div> */}
+      {/* Desktop Navigation */}
+      <nav className="hidden md:flex items-center space-x-6">
+        <Link href="/" className="text-sm hover:text-primary transition-colors">
+          Home
+        </Link>
+        <Link
+          href="/about"
+          className="text-sm hover:text-primary transition-colors"
+        >
+          About
+        </Link>
+        <Link
+          href="/founders"
+          className="text-sm hover:text-primary transition-colors"
+        >
+          Founders
+        </Link>
+        <Link href="/">
+          <Button
+            size="sm"
+            className="bg-[#e5ff00] hover:bg-[#e5ff00] cursor-pointer"
+          >
+            <p className="text-black">Join Waitlist</p>
+          </Button>
+        </Link>
+      </nav>
+
+      {/* Mobile Menu Button */}
+      <button
+        onClick={toggleMenu}
+        className="md:hidden flex flex-col space-y-1 p-2"
+        aria-label="Toggle menu"
+      >
+        <span
+          className={cn(
+            "block w-6 h-0.5 bg-current transition-all duration-300",
+            isMenuOpen && "rotate-45 translate-y-1.5"
+          )}
+        />
+        <span
+          className={cn(
+            "block w-6 h-0.5 bg-current transition-all duration-300",
+            isMenuOpen && "opacity-0"
+          )}
+        />
+        <span
+          className={cn(
+            "block w-6 h-0.5 bg-current transition-all duration-300",
+            isMenuOpen && "-rotate-45 -translate-y-1.5"
+          )}
+        />
+      </button>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-b md:hidden">
+          <nav className="flex flex-col space-y-4 p-4">
+            <Link
+              href="/"
+              className="text-sm hover:text-primary transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="text-sm hover:text-primary transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              href="/founders"
+              className="text-sm hover:text-primary transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Founders
+            </Link>
+            <Link href="/">
+              <Button
+                size="sm"
+                className="w-full bg-[#e5ff00] hover:bg-[#e5ff00] text-black"
+              >
+                Join Waitlist
+              </Button>
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
