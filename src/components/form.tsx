@@ -56,15 +56,14 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
           body: JSON.stringify({ firstname: name, email }),
         })
           .then((mailResponse) => {
-            // TODO: Uncomment this when we have a mail service domains verified
-            // if (!mailResponse.ok) {
-            //   if (mailResponse.status === 429) {
-            //     reject("Rate limited");
-            //   } else {
-            //     reject("Email sending failed");
-            //   }
-            //   return null;
-            // }
+            if (!mailResponse.ok) {
+              if (mailResponse.status === 429) {
+                reject("Rate limited");
+              } else {
+                reject("Email sending failed");
+              }
+              return null;
+            }
 
             return fetch("/api/notion", {
               method: "POST",
