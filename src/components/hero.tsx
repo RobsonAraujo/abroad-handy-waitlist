@@ -21,18 +21,18 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-lime-400" />
           </span>
           <p className="uppercase text-sm font-medium">
-            available in early {year}
+            launching in early {year}
           </p>
         </div>
       </div>
       <div className="flex flex-col items-center justify-center gap-2 max-w-2xl">
         <h2 className="text-4xl font-bold text-foreground">
-          {isSuccess ? "You're on the waitlist" : "Get early Access"}
+          {isSuccess ? "You're on the waitlist" : "Join Our Mentor Waitlist"}
         </h2>
         <p className="text-base text-muted-foreground text-center max-w-md">
           {isSuccess
-            ? "You've successfully secured your spot.We’ll hit you up the moment it’s your turn to dive in"
-            : "Be among the first to experience the future of AI-powered productivity. Join the waitlist to get notified when we launch."}
+            ? "You've successfully secured your spot. We'll notify you as soon as the platform launches and you can start helping students achieve their study abroad dreams."
+            : "Be among the first mentors to help students from around the world get into top universities like Harvard, Oxford, and Cambridge. Join our exclusive waitlist for early access and special benefits."}
         </p>
       </div>
       <div className="flex flex-col items-center justify-center gap-2 w-full max-w-md">
