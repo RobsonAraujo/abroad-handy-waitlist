@@ -13,7 +13,7 @@ export function LandingPage({ waitlistPeople }: { waitlistPeople: number }) {
   const confettiRef = useRef<ConfettiRef>(null);
 
   return (
-    <main className="mx-auto max-w-screen-2xl w-full h-full flex-1 flex flex-col relative">
+    <main className="min-h-screen  py-20  text-center  px-4 md:px-10mx-auto max-w-screen-2xl w-full h-full flex-1 flex flex-col relative">
       <Confetti
         ref={confettiRef}
         className="fixed inset-0 z-50 pointer-events-none"
