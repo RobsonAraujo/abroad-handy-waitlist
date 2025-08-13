@@ -35,25 +35,25 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Too many requests!" }, { status: 429 });
   }
 
-  const { email, name } = await request.json();
+  // const { email, name } = await request.json();
 
-  const { data, error } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL || "",
-    to: [email],
-    subject: "Welcome to In Progress - You're on our Mentor Waitlist! 🎓",
-    react: WelcomeTemplate({ userFirstname: name }),
-  });
+  // const { data, error } = await resend.emails.send({
+  //   from: process.env.RESEND_FROM_EMAIL || "",
+  //   to: [email],
+  //   subject: "Welcome to In Progress - You're on our Mentor Waitlist! 🎓",
+  //   react: WelcomeTemplate({ userFirstname: name }),
+  // });
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
+  // if (error) {
+  //   return NextResponse.json({ error: error.message }, { status: 500 });
+  // }
 
-  if (!data) {
-    return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 }
-    );
-  }
+  // if (!data) {
+  //   return NextResponse.json(
+  //     { error: "Failed to send email" },
+  //     { status: 500 }
+  //   );
+  // }
 
   return NextResponse.json(
     { message: "Email sent successfully" },
