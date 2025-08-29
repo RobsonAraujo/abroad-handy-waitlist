@@ -22,13 +22,12 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
-        "relative cursor-pointer inline-flex h-8 w-14 items-center justify-center rounded-full border-2 transition-all duration-300 ease-in-out",
-        "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
-        isDark ? "bg-gray-800 border-gray-600" : "bg-gray-100 border-gray-300"
+        "relative cursor-pointer inline-flex h-8 w-14 items-center justify-center rounded-full transition-all duration-300 ease-in-out",
+        "hover:scale-105 focus:outline-none  focus:ring-primary focus:ring-offset-2",
+        isDark ? "bg-gray-800 " : "bg-gray-100"
       )}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
-      {/* Toggle Background */}
       <div
         className={cn(
           "absolute inset-1 rounded-full transition-all duration-300 ease-in-out",
@@ -38,7 +37,6 @@ export function ThemeToggle() {
         )}
       />
 
-      {/* Toggle Circle */}
       <div
         className={cn(
           "relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-lg transition-all duration-300 ease-in-out",
