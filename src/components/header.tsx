@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { useState } from "react";
 import { Logo } from "./svgs";
+import { ThemeToggle } from "./theme-toggle";
 
 export default function Header() {
   const scrolled = useScroll();
@@ -46,6 +47,7 @@ export default function Header() {
         >
           Founders
         </Link>
+        <ThemeToggle />
         <Link href="/">
           <Button
             size="sm"
@@ -107,6 +109,10 @@ export default function Header() {
             >
               Founders
             </Link>
+            <div className="flex items-center justify-between py-2">
+              <span className="text-sm text-foreground">Theme</span>
+              <ThemeToggle />
+            </div>
             <Link href="/">
               <Button
                 size="sm"
