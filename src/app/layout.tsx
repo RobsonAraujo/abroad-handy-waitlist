@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description:
     "Join our exclusive mentor waitlist, Abroad Handy, the platform connecting students with verified mentors from Harvard, Oxford, Cambridge and other top international universities. Help students achieve their study abroad dreams.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/logo.svg",
   },
 };
 
