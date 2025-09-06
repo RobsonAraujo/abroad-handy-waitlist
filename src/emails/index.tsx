@@ -37,17 +37,17 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
         >
           <Container className="bg-white rounded-[20px] mx-auto p-[40px] max-w-[600px] shadow-2xl border border-gray-200">
             {/* Header with decorative elements */}
-            <Section className="text-center mb-[32px] bg-gradient-to-br from-[#e5ff00]/20 to-[#DFFF1A]/20 rounded-[20px] p-[32px]">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#e5ff00] to-[#DFFF1A] rounded-full mx-auto mb-6 flex items-center justify-center">
+            <Section className="text-center mb-[32px] bg-gradient-to-br from-[#f9cc14]/20 to-[#f9cc14]/20 rounded-[20px] p-[32px]">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#f9cc14] to-[#f9cc14] rounded-full mx-auto mb-6 flex items-center justify-center">
                 <span className="text-2xl">🎓</span>
               </div>
               <Text className="text-[32px] font-bold text-gray-900 m-0">
-                Welcome to <span className="text-[#c6dd00]">Abroad Handy</span>
+                Welcome to <span className="text-[#f9cc14]">Abroad Handy</span>
               </Text>
               <Text className="text-[18px] text-gray-600 mt-[16px] mb-[16px]">
                 We're thrilled to have you join our mentor waitlist
               </Text>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#e5ff00] to-[#DFFF1A] mx-auto rounded-full"></div>
+              <div className="w-20 h-1 bg-gradient-to-r from-[#f9cc14] to-[#f9cc14] mx-auto rounded-full"></div>
             </Section>
 
             {/* Main content */}
@@ -100,7 +100,7 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
 
             {/* Inspirational section */}
             <Section className="text-center mb-[32px]">
-              <div className="bg-gradient-to-r from-[#e5ff00]/10 to-[#DFFF1A]/10 rounded-[16px] p-[24px]">
+              <div className="bg-gradient-to-r from-[#f9cc14]/10 to-[#f9cc14]/10 rounded-[16px] p-[24px]">
                 <Text className="text-[24px] mb-[16px]">🚀 ✨ 🎓</Text>
                 <Text className="text-[16px] text-gray-600 italic mb-[8px]">
                   "The best way to predict the future is to create it."
