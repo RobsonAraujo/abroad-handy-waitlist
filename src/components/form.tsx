@@ -4,6 +4,7 @@ import { useState, type FormEvent, type ChangeEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { toast } from "sonner";
 import confetti from "canvas-confetti";
+import { Button } from "./ui/button";
 
 interface FormProps {
   onSuccessChange?: (success: boolean) => void;
@@ -153,13 +154,14 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <button
+          <Button
             onClick={resetForm}
-            className="bg-[#e5ff00] text-black px-6 py-2 rounded-[12] font-semibold hover:bg-opacity-90 transition-all"
+            variant="default"
+            className="px-6 py-2 rounded-[12] font-semibold"
             type="button"
           >
             Join with another email
-          </button>
+          </Button>
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="relative">
@@ -178,17 +180,18 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#e5ff00]"
+                  className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f9cc14]"
                   disabled={loading}
                   required
                 />
-                <button
+                <Button
                   type="submit"
-                  className="absolute right-0 font-semibold top-0 bottom-0 bg-[#e5ff00] flex justify-center items-center cursor-pointer text-black px-5 py-2 m-2 rounded-[12] hover:bg-opacity-90 transition-all disabled:opacity-50"
+                  variant="default"
+                  className="absolute right-0 font-semibold top-0 bottom-0 flex justify-center items-center px-5 py-2 m-2 rounded-[12]"
                   disabled={loading}
                 >
                   Continue
-                </button>
+                </Button>
               </motion.div>
             ) : (
               <motion.div
@@ -205,13 +208,14 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Name"
-                    className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#e5ff00]"
+                    className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f9cc14]"
                     disabled={loading}
                     required
                   />
-                  <button
+                  <Button
                     type="submit"
-                    className="absolute right-0 font-semibold top-0 bottom-0 bg-[#e5ff00] flex justify-center items-center cursor-pointer text-black px-5 py-2 m-2 rounded-[12] hover:bg-opacity-90 transition-all disabled:opacity-50"
+                    variant="default"
+                    className="absolute right-0 font-semibold top-0 bottom-0 flex justify-center items-center px-5 py-2 m-2 rounded-[12]"
                     disabled={loading}
                   >
                     {loading ? (
@@ -243,7 +247,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                     ) : (
                       <span>Join waitlist</span>
                     )}
-                  </button>
+                  </Button>
                 </div>
               </motion.div>
             )}

@@ -49,10 +49,7 @@ export default function Header() {
         </Link>
         <ThemeToggle />
         <Link href="/">
-          <Button
-            size="sm"
-            className="bg-[#e5ff00] hover:bg-[#e5ff00] cursor-pointer"
-          >
+          <Button size="sm" variant="default">
             <p className="text-black">Join Waitlist</p>
           </Button>
         </Link>
@@ -114,10 +111,7 @@ export default function Header() {
               <ThemeToggle />
             </div>
             <Link href="/">
-              <Button
-                size="sm"
-                className="w-full bg-[#e5ff00] hover:bg-[#e5ff00] text-black"
-              >
+              <Button size="sm" variant="default" className="w-full">
                 Join Waitlist
               </Button>
             </Link>

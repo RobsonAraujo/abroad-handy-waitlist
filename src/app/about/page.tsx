@@ -197,7 +197,7 @@ export default function AboutPage() {
       </section>
 
       {/* Waitlist Section */}
-      <section className="py-16 px-4 md:px-10 bg-[#e5ff00]/10">
+      <section className="py-16 px-4 md:px-10 bg-[#f9cc14]/10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Join Our Mentor Waitlist</h2>
 
@@ -215,33 +215,33 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-2 gap-4 text-left">
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-[#e5ff00] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#f9cc14] rounded-full"></div>
                     <span className="text-sm">
                       Early access to the platform
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-[#e5ff00] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#87efac] rounded-full"></div>
                     <span className="text-sm">
                       Priority profile verification
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-[#e5ff00] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#2463eb] rounded-full"></div>
                     <span className="text-sm">Reduced commission rates</span>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-[#e5ff00] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#c87dff] rounded-full"></div>
                     <span className="text-sm">Exclusive mentor community</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-[#e5ff00] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#87efac] rounded-full"></div>
                     <span className="text-sm">First-mover advantage</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-[#e5ff00] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#2463eb] rounded-full"></div>
                     <span className="text-sm">Direct feedback on features</span>
                   </div>
                 </div>
@@ -249,10 +249,7 @@ export default function AboutPage() {
             </div>
           </div>
           <Link href="/">
-            <Button
-              size="lg"
-              className="cursor-pointer bg-[#e5ff00] hover:bg-[#e5ff00] text-black"
-            >
+            <Button size="lg" variant="default">
               Join Mentor Waitlist
             </Button>
           </Link>
@@ -283,10 +280,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/">
-              <Button
-                size="lg"
-                className="cursor-pointer bg-[#e5ff00] hover:bg-[#e5ff00] text-black"
-              >
+              <Button size="lg" variant="default">
                 Join as Mentor
               </Button>
             </Link>

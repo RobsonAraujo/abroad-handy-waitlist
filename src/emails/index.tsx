@@ -83,15 +83,15 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
                 </Text>
                 <div className="grid grid-cols-2 gap-3 text-sm">
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-[#e5ff00] rounded-full mr-1"></div>
+                    <div className="w-2 h-2 bg-[#f9cc14] rounded-full mr-1"></div>
                     <span className="text-gray-700">Early Access</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-[#e5ff00] rounded-full mr-1"></div>
+                    <div className="w-2 h-2 bg-[#87efac] rounded-full mr-1"></div>
                     <span className="text-gray-700">Priority Verification</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-[#e5ff00] rounded-full mr-1"></div>
+                    <div className="w-2 h-2 bg-[#c87dff] rounded-full mr-1"></div>
                     <span className="text-gray-700">Exclusive Community</span>
                   </div>
                 </div>

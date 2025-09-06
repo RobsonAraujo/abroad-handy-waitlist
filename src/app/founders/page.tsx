@@ -232,10 +232,7 @@ export default function FoundersPage() {
             international education.
           </p>
           <Link href="/">
-            <Button
-              size="lg"
-              className="bg-[#e5ff00] hover:bg-[#e5ff00] text-black"
-            >
+            <Button size="lg" variant="default">
               Join the Waitlist
             </Button>
           </Link>
