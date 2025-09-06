@@ -27,10 +27,10 @@ export default function FAQ() {
         >
           <AccordionItem value="item-1">
             <AccordionTrigger className="hover:no-underline">
-              What is the "In Progress" platform?
+              What is the "Abroad Handy" platform?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground">
-              "In Progress" is a mentorship platform that connects aspiring
+              "Abroad Handy" is a mentorship platform that connects aspiring
               students with verified mentors who are currently studying or have
               graduated from top international universities like Harvard,
               Oxford, and Cambridge. Students can book 30 or 60-minute sessions

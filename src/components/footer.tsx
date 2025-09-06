@@ -26,7 +26,7 @@ export default function Footer() {
       </div> */}
       <div>
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} "In Progress"
+          &copy; {new Date().getFullYear()} "Abroad Handy"
         </p>
       </div>
     </footer>

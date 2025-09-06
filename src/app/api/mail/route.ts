@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
   // const { data, error } = await resend.emails.send({
   //   from: process.env.RESEND_FROM_EMAIL || "",
   //   to: [email],
-  //   subject: "Welcome to In Progress - You're on our Mentor Waitlist! 🎓",
+  //   subject: "Welcome to Abroad Handy - You're on our Mentor Waitlist! 🎓",
   //   react: WelcomeTemplate({ userFirstname: name }),
   // });
 

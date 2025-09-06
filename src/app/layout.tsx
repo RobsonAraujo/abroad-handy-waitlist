@@ -18,9 +18,9 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: "In Progress — Connect with Top University Mentors",
+  title: "Abroad Handy — Connect with Top University Mentors",
   description:
-    "Join our exclusive mentor waitlist, In Progress, the platform connecting students with verified mentors from Harvard, Oxford, Cambridge and other top international universities. Help students achieve their study abroad dreams.",
+    "Join our exclusive mentor waitlist, Abroad Handy, the platform connecting students with verified mentors from Harvard, Oxford, Cambridge and other top international universities. Help students achieve their study abroad dreams.",
   icons: {
     icon: "/favicon.svg",
   },

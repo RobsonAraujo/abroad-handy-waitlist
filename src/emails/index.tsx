@@ -20,7 +20,7 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
     <Html>
       <Tailwind>
         <Head>
-          <title>Welcome to In Progress</title>
+          <title>Welcome to Abroad Handy</title>
           <Preview>
             Thanks for joining our mentor waitlist! We'll keep you updated on
             our progress.
@@ -42,7 +42,7 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
                 <span className="text-2xl">🎓</span>
               </div>
               <Text className="text-[32px] font-bold text-gray-900 m-0">
-                Welcome to <span className="text-[#c6dd00]">In Progress</span>
+                Welcome to <span className="text-[#c6dd00]">Abroad Handy</span>
               </Text>
               <Text className="text-[18px] text-gray-600 mt-[16px] mb-[16px]">
                 We're thrilled to have you join our mentor waitlist
@@ -57,7 +57,7 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
               </Text>
 
               <Text className="text-[16px] leading-[26px] text-gray-700 mb-[20px]">
-                Thanks for joining the waitlist for In Progress, our mentorship
+                Thanks for joining the waitlist for Abroad Handy, our mentorship
                 platform connecting students with verified mentors from top
                 international universities like Harvard, Oxford, and Cambridge!
               </Text>
@@ -125,7 +125,7 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
                 Ali and Robson
               </Text>
               <Text className="text-[14px] text-gray-600 mb-[16px]">
-                Founders, In Progress
+                Founders, Abroad Handy
               </Text>
               <Text className="text-[14px] text-gray-600 mb-[32px]">
                 <Link
@@ -149,7 +149,7 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
 
             <Section>
               <Text className="text-[12px] text-gray-500 text-center m-0">
-                © {currentYear} In Progress. All rights reserved.
+                © {currentYear} Abroad Handy. All rights reserved.
               </Text>
               <Text className="text-[12px] text-gray-500 text-center m-0">
                 Connecting students with world-class mentors

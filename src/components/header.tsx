@@ -27,7 +27,7 @@ export default function Header() {
       {/* Logo */}
       <Link href="/" className="flex items-center space-x-2">
         <Logo className="w-8 h-8" />
-        <span className="font-semibold text-lg">In Progress</span>
+        <span className="font-semibold text-lg">Abroad Handy</span>
       </Link>
 
       {/* Desktop Navigation */}
