@@ -37,22 +37,23 @@ export async function POST(request: NextRequest) {
 
   const { email, name } = await request.json();
 
-  const { data, error } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL || "",
-    to: [email],
-    subject: "Welcome to Abroad Handy - You're on our Mentor Waitlist! 🎓",
-    react: WelcomeTemplate({ userFirstname: name }),
-  });
+  try {
+    const { data, error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL || "",
+      to: [email],
+      subject: "Welcome to Abroad Handy - You're on our Mentor Waitlist! 🎓",
+      react: WelcomeTemplate({ userFirstname: name }),
+    });
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
+    if (error) {
+      console.error("Failed to send email via Resend:", error);
+    }
 
-  if (!data) {
-    return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 }
-    );
+    if (!data) {
+      console.warn("Resend returned no data; email may not have been sent for:", email);
+    }
+  } catch (err) {
+    console.error("Unexpected error sending email:", err);
   }
 
   return NextResponse.json(
