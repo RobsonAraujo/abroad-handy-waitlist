@@ -32,7 +32,7 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
         <p className="text-base text-muted-foreground text-center max-w-md">
           {isSuccess
             ? "You've successfully secured your spot. We'll notify you as soon as the platform launches and you can start helping students achieve their study abroad dreams."
-            : "Be among the first mentors to help students from around the world get into top universities like Harvard, Oxford, and Cambridge. Join our exclusive waitlist for early access and special benefits."}
+            : "Be among the first mentors to help students from around the world get into top universities like Harvard, Oxford, and Boston University. Join our exclusive waitlist for early access and special benefits."}
         </p>
       </div>
       <div className="flex flex-col items-center justify-center gap-2 w-full max-w-md">

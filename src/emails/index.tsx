@@ -59,7 +59,8 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
               <Text className="text-[16px] leading-[26px] text-gray-700 mb-[20px]">
                 Thanks for joining the waitlist for Abroad Handy, our mentorship
                 platform connecting students with verified mentors from top
-                international universities like Harvard, Oxford, and Cambridge!
+                international universities like Harvard, Oxford, and Boston
+                University!
               </Text>
 
               <Text className="text-[16px] leading-[26px] text-gray-700 mb-[20px]">

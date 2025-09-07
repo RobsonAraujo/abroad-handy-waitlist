@@ -33,9 +33,9 @@ export default function FAQ() {
               "Abroad Handy" is a mentorship platform that connects aspiring
               students with verified mentors who are currently studying or have
               graduated from top international universities like Harvard,
-              Oxford, and Cambridge. Students can book 30 or 60-minute sessions
-              for essay reviews, application strategy, scholarship guidance, and
-              interview preparation.
+              Oxford, and Boston University. Students can book 30 or 60-minute
+              sessions for essay reviews, application strategy, scholarship
+              guidance, and interview preparation.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">

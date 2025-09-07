@@ -48,7 +48,7 @@ export default function AboutPage() {
                 We connect students from countries like Brazil, India, China,
                 Pakistan and Nigeria with verified mentors who are currently
                 studying or have studied at prestigious institutions like
-                Harvard, Oxford, and Cambridge.
+                Harvard, Oxford, and Boston University.
               </p>
 
               <div className="space-y-3">
