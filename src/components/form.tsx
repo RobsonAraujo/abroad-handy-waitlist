@@ -57,14 +57,15 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
           body: JSON.stringify({ firstname: name, email }),
         })
           .then((mailResponse) => {
-            if (!mailResponse.ok) {
-              if (mailResponse.status === 429) {
-                reject("Rate limited");
-              } else {
-                reject("Email sending failed");
-              }
-              return null;
-            }
+            // TODO: even if resend mail limit is reached, continue to sabe in the notion database
+            // if (!mailResponse.ok) {
+            //   if (mailResponse.status === 429) {
+            //     reject("Rate limited");
+            //   } else {
+            //     reject("Email sending failed");
+            //   }
+            //   return null;
+            // }
 
             return fetch("/api/notion", {
               method: "POST",
