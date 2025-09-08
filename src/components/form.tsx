@@ -173,26 +173,38 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="flex relative"
+                className="flex flex-col space-y-2"
               >
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email"
-                  className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f9cc14]"
-                  disabled={loading}
-                  required
-                />
-                <Button
-                  type="submit"
-                  variant="default"
-                  className="absolute right-0 font-semibold top-0 bottom-0 flex justify-center items-center px-5 py-2 m-2 rounded-[12]"
-                  disabled={loading}
+                <label
+                  htmlFor="email"
+                  className="text-base font-semibold text-foreground mb-1 block"
                 >
-                  Continue
-                </Button>
+                  Email Address
+                </label>
+                <div className="flex relative">
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your@email.com"
+                    className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f9cc14]"
+                    disabled={loading}
+                    required
+                  />
+                  <Button
+                    type="submit"
+                    variant="default"
+                    className="absolute right-0 font-semibold top-0 bottom-0 flex justify-center items-center px-5 py-2 m-2 rounded-[12]"
+                    disabled={loading}
+                  >
+                    Continue
+                  </Button>
+                </div>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Enter your email to receive updates about AbroadHandy
+                </p>
               </motion.div>
             ) : (
               <motion.div
@@ -200,15 +212,22 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="flex flex-col space-y-3"
+                className="flex flex-col space-y-2"
               >
+                <label
+                  htmlFor="name"
+                  className="text-base font-semibold text-foreground mb-1 block"
+                >
+                  Full Name
+                </label>
                 <div className="flex items-center relative">
                   <input
+                    id="name"
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Name"
+                    placeholder="John Smith"
                     className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f9cc14]"
                     disabled={loading}
                     required
@@ -250,6 +269,9 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                     )}
                   </Button>
                 </div>
+                <p className="text-sm text-muted-foreground mt-1">
+                  How you'd like to be addressed in our communications
+                </p>
               </motion.div>
             )}
           </AnimatePresence>
