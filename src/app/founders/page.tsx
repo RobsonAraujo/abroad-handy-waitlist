@@ -139,7 +139,7 @@ export default function FoundersPage() {
 
                   <p className="pr-4">
                     He has led high-impact projects for global brands, including
-                    Mitsubishi Motors Brazil, Mobiauto , building scalable
+                    Mitsubishi Motors Brazil and Mobiauto, building scalable
                     architectures and integrating strategic systems that now
                     process millions of dollars monthly.
                   </p>
@@ -152,14 +152,15 @@ export default function FoundersPage() {
 
                   <p className="pr-4">
                     His expertise spans JavaScript, TypeScript, React.js,
-                    Node.js, SQL, Python and cloud-based solutions, complemented
-                    by a strong ability to lead cross-functional teams and align
-                    technology with business goals.
+                    Node.js, SQL, Python, and cloud-based solutions,
+                    complemented by a strong ability to lead cross-functional
+                    teams and align technology with business goals.
                   </p>
 
                   <p className="pr-4">
-                    Beyone that Robson spend his time as a career mentor for
-                    students and helping them with their career goals.
+                    Beyond his technical work, Robson dedicates his time as a
+                    career mentor, helping students navigate their professional
+                    development and achieve their career goals.
                   </p>
                 </div>
               </div>
