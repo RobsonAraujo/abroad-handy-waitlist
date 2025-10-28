@@ -57,7 +57,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
           body: JSON.stringify({ firstname: name, email }),
         })
           .then((mailResponse) => {
-            // TODO: even if resend mail limit is reached, continue to sabe in the notion database
+            // TODO: with this commented out, even if resend mail limit is reached, continue to save  in the notion database
             // if (!mailResponse.ok) {
             //   if (mailResponse.status === 429) {
             //     reject("Rate limited");
