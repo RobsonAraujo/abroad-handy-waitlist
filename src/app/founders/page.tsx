@@ -59,40 +59,36 @@ export default function FoundersPage() {
                 <div className="space-y-4 text-sm leading-relaxed text-gray-700 relative">
                   <div className="absolute -left-2 top-0 bottom-0 w-1 bg-gray-200 rounded-full opacity-50"></div>
                   <p className="pl-4">
-                    Ali is a Master in Public Policy candidate at Harvard
-                    Kennedy School, specializing in data and research methods
-                    applied to economic policy, foreign direct investment, and
-                    trade disputes.
+                    Ali Aanish Rehman is a Master in Public Policy candidate at
+                    Harvard Kennedy School specializing in data-driven
+                    policymaking and quantitative analysis. His work integrates
+                    econometrics, finance, and development economics to tackle
+                    complex policy challenges across governance, investment, and
+                    sustainability.
                   </p>
 
                   <p className="pl-4">
-                    His work at the Mossavar-Rahmani Center for Business and
-                    Government involves analyzing over 300 investor–state
-                    arbitration cases across Latin America, applying time series
-                    and panel regressions to quantify legal and economic risks,
-                    and creating R-based visualizations for academic
-                    publication.
+                    At Harvard's Mossavar-Rahmani Center for Business and
+                    Government, he contributes to research that quantifies legal
+                    and economic risks in global investment and arbitration. His
+                    work with the United Nations focuses on designing
+                    cost-benefit frameworks and policy benchmarking tools that
+                    help governments evaluate and prioritize high-impact,
+                    SDG-aligned investments.
                   </p>
 
                   <p className="pl-4">
-                    He brings experience from the International Organization for
-                    Migration, where he optimized operational performance, and
-                    from portfolio management, where he achieved an average
-                    annual return of 35% through strategic investments in REITs,
-                    energy stocks, and bitcoin mining.
+                    Ali holds a B.A. in Econometrics and Quantitative Economics
+                    from DePauw University and studied Health Economics and
+                    International Trade at the University of Oxford. His
+                    academic and professional experience spans data science,
+                    financial policy, and international development.
                   </p>
 
                   <p className="pl-4">
-                    With a strong academic foundation in econometrics from
-                    DePauw University and international exposure at the
-                    University of Oxford, Ali combines rigorous quantitative
-                    skills with a global perspective.
-                  </p>
-
-                  <p className="pl-4">
-                    Outside of work, he is a former Junior National Champion
-                    golfer who has represented Pakistan in multiple
-                    international championships.
+                    Beyond his policy work, Ali is a former Junior National Golf
+                    Champion who has represented Pakistan in multiple
+                    international tournaments.
                   </p>
                 </div>
               </div>
@@ -143,31 +139,27 @@ export default function FoundersPage() {
 
                   <p className="pr-4">
                     He has led high-impact projects for global brands, including
-                    Mitsubishi Motors, Mercedes-Benz, and Banco PAN, building
-                    scalable architectures and integrating strategic systems
-                    that now process millions of dollars monthly.
+                    Mitsubishi Motors Brazil, Mobiauto , building scalable
+                    architectures and integrating strategic systems that now
+                    process millions of dollars monthly.
                   </p>
 
                   <p className="pr-4">
                     At Mobiauto, he coordinated a 12-member development team,
                     driving millions of monthly page views and enhancing SEO
-                    performance. At Nearsure, he engineered web architectures
-                    that improved system efficiency by 15% for major clients,
-                    while advising on technology adoption strategies.
+                    performance.
                   </p>
 
                   <p className="pr-4">
                     His expertise spans JavaScript, TypeScript, React.js,
-                    Node.js, SQL, PHP, and cloud-based solutions, complemented
+                    Node.js, SQL, Python and cloud-based solutions, complemented
                     by a strong ability to lead cross-functional teams and align
                     technology with business goals.
                   </p>
 
                   <p className="pr-4">
-                    Passionate about innovation and continuous learning, Robson
-                    thrives in dynamic environments, blending technical mastery
-                    with strategic vision to deliver impactful digital
-                    solutions.
+                    Beyone that Robson spend his time as a career mentor for
+                    students and helping them with their career goals.
                   </p>
                 </div>
               </div>
