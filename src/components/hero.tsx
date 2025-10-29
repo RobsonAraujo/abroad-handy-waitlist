@@ -8,7 +8,9 @@ import { Logo } from "./svgs";
 import Form from "./form";
 
 export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
-  const year = useMemo(() => new Date().getFullYear(), []);
+  // const year = useMemo(() => new Date().getFullYear(), []);
+  const year = 2026;
+
   const [isSuccess, setIsSuccess] = useState(false);
 
   return (
