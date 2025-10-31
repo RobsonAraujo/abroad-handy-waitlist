@@ -1,23 +1,43 @@
 "use client";
 
-import { useState, type FormEvent, type ChangeEvent } from "react";
+import { useState, type FormEvent, type ChangeEvent, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { toast } from "sonner";
 import confetti from "canvas-confetti";
 import { Button } from "./ui/button";
+import { UserType } from "~/types/user-type";
 
 interface FormProps {
   onSuccessChange?: (success: boolean) => void;
 }
 
 export default function WaitlistForm({ onSuccessChange }: FormProps) {
+  const searchParams = useSearchParams();
   const [step, setStep] = useState<number>(1);
-  const [formData, setFormData] = useState({
-    email: "",
-    name: "",
+  const [formData, setFormData] = useState<{
+    email: string;
+    name: string;
+    userType: UserType;
+  }>(() => {
+    const userTypeParam = searchParams.get("userType");
+    const initialType =
+      userTypeParam === UserType.MENTOR ||
+      userTypeParam === UserType.PROSPECTIVE_STUDENT
+        ? (userTypeParam as UserType)
+        : UserType.MENTOR;
+
+    return {
+      email: "",
+      name: "",
+      userType: initialType,
+    };
   });
   const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
+
+  // Read query params from URL on mount
+  // Removed effect since we now set initial state from searchParams synchronously to avoid flash
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -46,7 +66,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
       setLoading(true);
 
       const promise = new Promise((resolve, reject) => {
-        const { name, email } = formData;
+        const { name, email, userType } = formData;
 
         fetch("/api/mail", {
           cache: "no-store",
@@ -72,7 +92,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify({ name, email }),
+              body: JSON.stringify({ name, email, userType }),
             });
           })
           .then((notionResponse) => {
@@ -96,7 +116,11 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
       toast.promise(promise, {
         loading: "Getting you on the waitlist... 🚀",
         success: (data) => {
-          setFormData({ email: "", name: "" });
+          setFormData((prev) => ({
+            email: "",
+            name: "",
+            userType: prev.userType,
+          }));
           setSuccess(true);
           onSuccessChange?.(true);
           setTimeout(() => {
@@ -142,13 +166,55 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
 
   const resetForm = () => {
     setStep(1);
-    setFormData({ email: "", name: "" });
+    setFormData({ email: "", name: "", userType: UserType.MENTOR });
     setSuccess(false);
     onSuccessChange?.(false);
   };
 
   return (
     <div className="w-full relative">
+      {/* User Type Toggle - Always Visible (except when success) */}
+      {!success && (
+        <div className="mb-4 flex flex-col space-y-2">
+          <label className="text-base font-semibold text-foreground mb-1 block">
+            I am a
+          </label>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() =>
+                setFormData((prev) => ({ ...prev, userType: UserType.MENTOR }))
+              }
+              className={`cursor-pointer flex-1 px-4 py-3 rounded-[12] font-medium transition-all duration-300 ${
+                formData.userType === UserType.MENTOR
+                  ? "bg-[#f9cc14] text-black"
+                  : "bg-background border border-border text-foreground hover:border-[#f9cc14]"
+              }`}
+              disabled={loading}
+            >
+              Mentor
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                setFormData((prev) => ({
+                  ...prev,
+                  userType: UserType.PROSPECTIVE_STUDENT,
+                }))
+              }
+              className={`cursor-pointer flex-1 px-4 py-3 rounded-[12] font-medium transition-all duration-300 ${
+                formData.userType === UserType.PROSPECTIVE_STUDENT
+                  ? "bg-[#f9cc14] text-black"
+                  : "bg-background border border-border text-foreground hover:border-[#f9cc14]"
+              }`}
+              disabled={loading}
+            >
+              Prospective Student
+            </button>
+          </div>
+        </div>
+      )}
+
       {success ? (
         <motion.div
           className="p-6 flex justify-center items-center"
@@ -175,36 +241,38 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                 exit={{ opacity: 0, x: -20 }}
                 className="flex flex-col space-y-2"
               >
-                <label
-                  htmlFor="email"
-                  className="text-base font-semibold text-foreground mb-1 block"
-                >
-                  Email Address
-                </label>
-                <div className="flex relative">
-                  <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f9cc14]"
-                    disabled={loading}
-                    required
-                  />
-                  <Button
-                    type="submit"
-                    variant="default"
-                    className="absolute right-0 font-semibold top-0 bottom-0 flex justify-center items-center px-5 py-2 m-2 rounded-[12]"
-                    disabled={loading}
+                <div className="flex flex-col space-y-2">
+                  <label
+                    htmlFor="email"
+                    className="text-base font-semibold text-foreground mb-1 block"
                   >
-                    Continue
-                  </Button>
+                    Email Address
+                  </label>
+                  <div className="flex relative">
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="your@email.com"
+                      className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f9cc14]"
+                      disabled={loading}
+                      required
+                    />
+                    <Button
+                      type="submit"
+                      variant="default"
+                      className="absolute right-0 font-semibold top-0 bottom-0 flex justify-center items-center px-5 py-2 m-2 rounded-[12]"
+                      disabled={loading}
+                    >
+                      Continue
+                    </Button>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Enter your email to receive updates about AbroadHandy
+                  </p>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Enter your email to receive updates about AbroadHandy
-                </p>
               </motion.div>
             ) : (
               <motion.div
@@ -214,64 +282,66 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                 exit={{ opacity: 0, x: 20 }}
                 className="flex flex-col space-y-2"
               >
-                <label
-                  htmlFor="name"
-                  className="text-base font-semibold text-foreground mb-1 block"
-                >
-                  Full Name
-                </label>
-                <div className="flex items-center relative">
-                  <input
-                    id="name"
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Smith"
-                    className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f9cc14]"
-                    disabled={loading}
-                    required
-                  />
-                  <Button
-                    type="submit"
-                    variant="default"
-                    className="absolute right-0 font-semibold top-0 bottom-0 flex justify-center items-center px-5 py-2 m-2 rounded-[12]"
-                    disabled={loading}
+                <div className="flex flex-col space-y-2">
+                  <label
+                    htmlFor="name"
+                    className="text-base font-semibold text-foreground mb-1 block"
                   >
-                    {loading ? (
-                      <span className="flex items-center">
-                        <svg
-                          className="animate-spin -ml-1 mr-2 h-4 w-4 text-black"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <title>Loading spinner</title>
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          />
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          />
-                        </svg>
-                        Joining...
-                      </span>
-                    ) : (
-                      <span>Join waitlist</span>
-                    )}
-                  </Button>
+                    Full Name
+                  </label>
+                  <div className="flex items-center relative">
+                    <input
+                      id="name"
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="John Smith"
+                      className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f9cc14]"
+                      disabled={loading}
+                      required
+                    />
+                    <Button
+                      type="submit"
+                      variant="default"
+                      className="absolute right-0 font-semibold top-0 bottom-0 flex justify-center items-center px-5 py-2 m-2 rounded-[12]"
+                      disabled={loading}
+                    >
+                      {loading ? (
+                        <span className="flex items-center">
+                          <svg
+                            className="animate-spin -ml-1 mr-2 h-4 w-4 text-black"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <title>Loading spinner</title>
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            />
+                          </svg>
+                          Joining...
+                        </span>
+                      ) : (
+                        <span>Join waitlist</span>
+                      )}
+                    </Button>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    How you'd like to be addressed in our communications
+                  </p>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  How you'd like to be addressed in our communications
-                </p>
               </motion.div>
             )}
           </AnimatePresence>

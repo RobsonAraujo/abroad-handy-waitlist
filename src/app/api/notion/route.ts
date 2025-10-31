@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { notion } from "~/lib/notion";
+import { UserType } from "~/types/user-type";
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -24,6 +25,12 @@ export async function POST(request: Request) {
               },
             },
           ],
+        },
+        "User Type": {
+          type: "select",
+          select: {
+            name: body?.userType || UserType.MENTOR,
+          },
         },
       },
     });
