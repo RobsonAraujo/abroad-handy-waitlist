@@ -74,7 +74,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ firstname: name, email }),
+          body: JSON.stringify({ firstname: name, email, userType }),
         })
           .then((mailResponse) => {
             // TODO: with this commented out, even if resend mail limit is reached, continue to save  in the notion database

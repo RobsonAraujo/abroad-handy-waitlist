@@ -4,6 +4,7 @@ import { Redis } from "@upstash/redis";
 import { Ratelimit } from "@upstash/ratelimit";
 
 import WelcomeTemplate from "~/emails";
+import { UserType } from "~/types/user-type";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -35,13 +36,19 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Too many requests!" }, { status: 429 });
   }
 
-  const { email, name } = await request.json();
+  const { email, name, userType } = await request.json();
+  const isStudent = userType === UserType.PROSPECTIVE_STUDENT;
 
   const { data, error } = await resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL || "",
     to: [email],
-    subject: "Welcome to Abroad Handy - You're on our Mentor Waitlist! 🎓",
-    react: WelcomeTemplate({ userFirstname: name }),
+    subject: isStudent
+      ? "Welcome to Abroad Handy - You're on our Student Waitlist! 🎓"
+      : "Welcome to Abroad Handy - You're on our Mentor Waitlist! 🎓",
+    react: WelcomeTemplate({
+      userFirstname: name,
+      userType: userType || UserType.MENTOR,
+    }),
   });
 
   if (error) {

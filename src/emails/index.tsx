@@ -12,8 +12,15 @@ import {
   Text,
   Tailwind,
 } from "@react-email/components";
+import { UserType } from "~/types/user-type";
 
-const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
+interface WaitlistEmailProps {
+  userFirstname: string;
+  userType: UserType;
+}
+
+const WaitlistEmail = ({ userFirstname, userType }: WaitlistEmailProps) => {
+  const isStudent = userType === UserType.PROSPECTIVE_STUDENT;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -22,8 +29,9 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
         <Head>
           <title>Welcome to Abroad Handy</title>
           <Preview>
-            Thanks for joining our mentor waitlist! We'll keep you updated on
-            our progress.
+            {isStudent
+              ? "Thanks for joining our student waitlist! We'll connect you with top university mentors soon."
+              : "Thanks for joining our mentor waitlist! We'll keep you updated on our progress."}
           </Preview>
           <style>
             {`
@@ -45,7 +53,9 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
                 Welcome to <span className="text-[#f9cc14]">Abroad Handy</span>
               </Text>
               <Text className="text-[18px] text-gray-600 mt-[16px] mb-[16px]">
-                We're thrilled to have you join our mentor waitlist
+                {isStudent
+                  ? "We're thrilled to have you join our student waitlist"
+                  : "We're thrilled to have you join our mentor waitlist"}
               </Text>
               <div className="w-20 h-1 bg-gradient-to-r from-[#f9cc14] to-[#f9cc14] mx-auto rounded-full"></div>
             </Section>
@@ -56,26 +66,52 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
                 Hi {userFirstname},
               </Text>
 
-              <Text className="text-[16px] leading-[26px] text-gray-700 mb-[20px]">
-                Thanks for joining the waitlist for Abroad Handy, our mentorship
-                platform connecting students with verified mentors from top
-                international universities like Harvard, Oxford, and Boston
-                University!
-              </Text>
+              {isStudent ? (
+                <>
+                  <Text className="text-[16px] leading-[26px] text-gray-700 mb-[20px]">
+                    Thanks for joining the waitlist for Abroad Handy! We're
+                    building a platform that connects ambitious students like
+                    you with verified mentors from top international
+                    universities like Harvard, Oxford, and Boston University.
+                  </Text>
 
-              <Text className="text-[16px] leading-[26px] text-gray-700 mb-[20px]">
-                We're building something special to help students from around
-                the world achieve their study abroad dreams, and your expertise
-                will be invaluable. I'll personally keep you updated on our
-                progress and let you know the moment the platform is ready for
-                you to start mentoring.
-              </Text>
+                  <Text className="text-[16px] leading-[26px] text-gray-700 mb-[20px]">
+                    Coming soon, we'll have mentors from the world's best
+                    universities ready to guide you on your study abroad
+                    journey. We'll connect you directly with these experts who
+                    can help you achieve your dreams of studying at top
+                    institutions.
+                  </Text>
 
-              <Text className="text-[16px] leading-[26px] text-gray-700 mb-[24px]">
-                As a waitlist member, you'll get early access, priority profile
-                verification, and exclusive benefits. Got questions or ideas?
-                Just hit reply, we'd love to hear from you.
-              </Text>
+                  <Text className="text-[16px] leading-[26px] text-gray-700 mb-[24px]">
+                    As a waitlist member, you'll have priority access when we
+                    launch. This means you'll be among the first to connect with
+                    our mentors and get personalized guidance.
+                  </Text>
+                </>
+              ) : (
+                <>
+                  <Text className="text-[16px] leading-[26px] text-gray-700 mb-[20px]">
+                    Thanks for joining the waitlist for Abroad Handy, our
+                    mentorship platform connecting students with verified
+                    mentors from top international universities like Harvard,
+                    Oxford, and Boston University!
+                  </Text>
+
+                  <Text className="text-[16px] leading-[26px] text-gray-700 mb-[20px]">
+                    We're building something special to help students from
+                    around the world achieve their study abroad dreams, and your
+                    expertise will be invaluable. I'll personally keep you
+                    updated on our progress and let you know the moment the
+                    platform is ready for you to start mentoring.
+                  </Text>
+
+                  <Text className="text-[16px] leading-[26px] text-gray-700 mb-[24px]">
+                    As a waitlist member, you'll get early access, priority
+                    profile verification, and exclusive benefits.
+                  </Text>
+                </>
+              )}
 
               {/* Benefits highlight box */}
               <div className="bg-white rounded-[12px] p-[24px] border border-gray-200 mb-[24px]">
@@ -83,18 +119,51 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
                   ✨ Your Exclusive Benefits
                 </Text>
                 <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-[#f9cc14] rounded-full mr-1"></div>
-                    <span className="text-gray-700">Early Access</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-[#87efac] rounded-full mr-1"></div>
-                    <span className="text-gray-700">Priority Verification</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-[#c87dff] rounded-full mr-1"></div>
-                    <span className="text-gray-700">Exclusive Community</span>
-                  </div>
+                  {isStudent ? (
+                    <>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-[#f9cc14] rounded-full mr-1"></div>
+                        <span className="text-gray-700">Priority Access</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-[#87efac] rounded-full mr-1"></div>
+                        <span className="text-gray-700">
+                          Top University Mentors
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-[#c87dff] rounded-full mr-1"></div>
+                        <span className="text-gray-700">
+                          Direct Connections
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-[#ff6b9d] rounded-full mr-1"></div>
+                        <span className="text-gray-700">
+                          Personalized Guidance
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-[#f9cc14] rounded-full mr-1"></div>
+                        <span className="text-gray-700">Early Access</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-[#87efac] rounded-full mr-1"></div>
+                        <span className="text-gray-700">
+                          Priority Verification
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-[#c87dff] rounded-full mr-1"></div>
+                        <span className="text-gray-700">
+                          Exclusive Community
+                        </span>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </Section>
@@ -113,8 +182,9 @@ const WaitlistEmail = ({ userFirstname }: { userFirstname: string }) => {
             </Section>
 
             <Text className="text-[16px] leading-[26px] text-gray-700 mb-[24px] text-center">
-              Want to stay connected? Follow us for updates on the platform
-              development and early previews of mentor features.
+              {isStudent
+                ? "Want to stay connected? Follow us for updates on when our mentors are available and how we'll connect you with top university experts."
+                : "Want to stay connected? Follow us for updates on the platform development and early previews of mentor features."}
             </Text>
 
             {/* Signature */}
